@@ -1,0 +1,15 @@
+type Playlist {
+    id: String
+    name: String!
+    popularity: Int
+    preview_url: String
+    explicit: Boolean
+}
+
+type Query {
+    trackById: Playlist
+        @rest (
+            endpoint: "https://api.spotify.com/v1/tracks/$trackid"
+            configuration: "spotify_config"
+        )
+}

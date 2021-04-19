@@ -1,0 +1,5 @@
+configurationset:
+  - configuration:
+      name: <config_name>
+      trackid: <Spotify_track_id>
+      Authorization: <bearer_token>
