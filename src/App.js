@@ -1,4 +1,5 @@
 import HelloWorld from './HelloWorld';
+import LosingPage from './losingPage';
 
 import logo from './logo.svg';
 import './App.css';
@@ -20,6 +21,7 @@ function App() {
           Learn React
         </a>
         <HelloWorld />
+        <LosingPage />
       </header>
     </div>
   );
