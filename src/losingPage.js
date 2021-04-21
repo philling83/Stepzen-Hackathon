@@ -32,7 +32,6 @@ const LosingPage = () => {
 
     const textStyle = {
         fontSize: '8rem',
-        backgroundColor: 'red',
         alignText:'bottom'
     }
 
@@ -47,7 +46,7 @@ const LosingPage = () => {
                 Game Over!
             </div>
             {/* <button style={buttonStyle}>Play Again</button> */}
-            <div style={buttonStyle}>Play Again</div>
+            <div style={buttonStyle} id='PlayAgainBtn'>Play Again</div>
             <div style={linksDivStyle} className='links'>
                 <a style={linkStyle} href="https://github.com/philling83">
                     Philip's Github
