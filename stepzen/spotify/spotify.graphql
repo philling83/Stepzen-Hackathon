@@ -1,3 +1,8 @@
+type Track {
+    name: String
+    popularity: Int
+}
+
 type Image {
     url: String
 }
@@ -7,41 +12,51 @@ type Artist {
 }
 
 type Query {
-    images: [Image]
-    @rest(
-        setters: [
-            {field:"url",path:"url"}
-            ]
-        resultroot: "album.images[]"
-        endpoint: "https://api.spotify.com/v1/tracks/$trackid"
-        configuration: "spotify_config"
-    )
     artists: [Artist]
     @rest(
         setters: [
             {field:"name",path:"name"}
             ]
-        resultroot: "album.artists[]"
-        endpoint: "https://api.spotify.com/v1/tracks/$trackid"
+        resultroot: "tracks.items[].track.album.artists[]"
+        endpoint: "https://api.spotify.com/v1/playlists/$playlistid"
+        configuration: "spotify_config"
+    )
+    tracks: [Track]
+    @rest(
+        setters: [
+            {field:"name",path:"track.name"}
+            {field:"popularity",path:"track.popularity"}
+        ]
+        resultroot: "tracks.items[]"
+        endpoint: "https://api.spotify.com/v1/playlists/$playlistid"
+        configuration: "spotify_config"
+    )
+    images: [Image]
+    @rest(
+        setters: [
+            {field:"url",path:"url"}
+            ]
+        resultroot: "tracks.items[].track.album.images[1]"
+        endpoint: "https://api.spotify.com/v1/playlists/$playlistid"
         configuration: "spotify_config"
     )
 }
 
-type Track {
+type Playlist {
     id: String
     name: String!
-    popularity: Int
-    explicit: Boolean
-    images: [Image]
-        @materializer (query: "images")
+    tracks: [Track]
+        @materializer (query: "tracks")
     artists: [Artist]
         @materializer (query: "artists")
+    images: [Image]
+        @materializer (query: "images")
 }
 
 type Query {
-    trackById: Track
+    playlistById: Playlist
         @rest(
-            endpoint: "https://api.spotify.com/v1/tracks/$trackid"
+            endpoint: "https://api.spotify.com/v1/playlists/$playlistid"
             configuration: "spotify_config"
         )
 }
