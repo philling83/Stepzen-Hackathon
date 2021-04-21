@@ -25,7 +25,8 @@ const LosingPage = () => {
         alignSelf: 'center',
         padding: '1rem 2rem',
         boxShadow: '0px 5px 5px gray',
-        fontSize: '2.5rem'
+        fontSize: '2.5rem',
+        cursor: 'pointer',
     }
 
     const linkStyle = {
