@@ -17,23 +17,33 @@ import { gql, useQuery } from '@apollo/client';
 
 // console.log(getToken())
 
-const GET_STEPZEN = gql`
-  query MyHelloWorldQuery {
-    helloWorld {
-      message
+const GET_TRACK = gql`
+  query GetTrackQuery {
+    trackById {
+      name
+      popularity
+      explicit
+      images {
+        url
+      }
+      artists {
+        name
+      }
     }
   }
 `;
 
-function HelloWorld() {
-  const { loading, error, data } = useQuery(GET_STEPZEN);
+function GetTrack() {
+  const { loading, error, data } = useQuery(GET_TRACK);
 
   if (error) return <p>{JSON.stringify(error)}</p>;
   if (loading) return <p>Loading ...</p>;
 
+  const track = data?.trackById
+
   return (
     <>
-      <p>StepZen says: "{data.helloWorld.message}"</p>
+      <p>StepZen says: "{JSON.stringify(track)}"</p>
       <a
         className="App-link"
         href="https://stepzen.com"
@@ -46,4 +56,4 @@ function HelloWorld() {
   );
 }
 
-export default HelloWorld;
+export default GetTrack;
