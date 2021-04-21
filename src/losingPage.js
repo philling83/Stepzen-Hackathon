@@ -19,7 +19,7 @@ const LosingPage = () => {
     }
 
     const buttonStyle = {
-        backgroundColor: 'red',
+        backgroundColor: 'lightgreen',
         outline: 'none',
         borderRadius: '10px',
         alignSelf: 'center',
