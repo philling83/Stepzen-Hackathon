@@ -6,3 +6,4 @@ schema
   ) {
   query: Query
 }
+
