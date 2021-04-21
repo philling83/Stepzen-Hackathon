@@ -1,6 +1,7 @@
 import {Route} from 'react-router-dom';
 import HelloWorld from './HelloWorld';
 import LosingPage from './losingPage';
+import GetTrack from './GetTrack';
 
 import logo from './logo.svg';
 import './App.css';
@@ -22,7 +23,7 @@ function App() {
         >
           Learn React
         </a>
-        <HelloWorld />
+        <GetTrack />
       </header>
       </Route>
         <Route path='/lost'>

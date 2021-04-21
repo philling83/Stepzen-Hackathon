@@ -1,14 +1,46 @@
-type Playlist {
-    id: String
-    name: String!
-    popularity: Int
-    preview_url: String
-    explicit: Boolean
+type Image {
+    url: String
+}
+
+type Artist {
+    name: String
 }
 
 type Query {
-    trackById: Playlist
-        @rest (
+    images: [Image]
+    @rest(
+        setters: [
+            {field:"url",path:"url"}
+            ]
+        resultroot: "album.images[]"
+        endpoint: "https://api.spotify.com/v1/tracks/$trackid"
+        configuration: "spotify_config"
+    )
+    artists: [Artist]
+    @rest(
+        setters: [
+            {field:"name",path:"name"}
+            ]
+        resultroot: "album.artists[]"
+        endpoint: "https://api.spotify.com/v1/tracks/$trackid"
+        configuration: "spotify_config"
+    )
+}
+
+type Track {
+    id: String
+    name: String!
+    popularity: Int
+    explicit: Boolean
+    images: [Image]
+        @materializer (query: "images")
+    artists: [Artist]
+        @materializer (query: "artists")
+}
+
+type Query {
+    trackById: Track
+        @rest(
             endpoint: "https://api.spotify.com/v1/tracks/$trackid"
             configuration: "spotify_config"
         )
