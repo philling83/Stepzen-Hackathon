@@ -23,6 +23,7 @@ const LosingPage = () => {
         alignSelf: 'center',
         padding: '1rem 2rem',
         boxShadow: '0px 5px 5px gray',
+        fontSize: '2.5rem'
     }
 
     const linkStyle = {
@@ -30,7 +31,7 @@ const LosingPage = () => {
     }
 
     const textStyle = {
-        fontSize: '3.5rem',
+        fontSize: '8rem',
         backgroundColor: 'red',
         alignText:'bottom'
     }
