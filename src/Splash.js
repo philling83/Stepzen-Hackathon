@@ -7,16 +7,16 @@ const Splash = () => {
                 {/* <h1 className="header">The</h1> */}
                 <h1 id="higher">Higher</h1>
                 <h1 id="lower">Lower</h1>
-                <h1 className="header">Game</h1>
+                {/* <h1 className="header">Game</h1> */}
+                <h2 className="main-subheader">Which song has more streams?</h2>
             </div>
             <div className="main-button-container">
                 <button id="play-button" className="button">Start Playing!</button>
                 <a href="https://github.com/philling83/Stepzen-Hackathon" className="button">GitHub Repo</a>
             </div>
             <div className="subheader-container">
-                <h2 className="subheader">Which song has more streams?</h2>
-                <p className="subheader">A frustratingly addictive game of higher or lower using song streams.
-                    The app was developed in 4 days, using GraphQL, React, and Spotify's API library, as a part of MintBean's April 2021 Hackathon.</p>
+                <p className="subheader">A frustratingly addictive game of higher or lower using song streams.</p>
+                <p className="subheader">The app was developed in 4 days, using GraphQL, React, and Spotify's API library, as a part of MintBean's April 2021 Hackathon.</p>
             </div>
 
 

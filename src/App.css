@@ -48,14 +48,14 @@ body {
 }
 
 #higher {
-  font-size: 70px;
-  color: green;
+  font-size: 90px;
+  color: #33d9b2;
   margin: 0px;
 }
 
 #lower {
-  font-size: 70px;
-  color: red;
+  font-size: 90px;
+  color: #ff5252;
   margin: 0px 0px;
 }
 
@@ -63,19 +63,26 @@ body {
   margin: 20px 30px;
 }
 
+.main-subheader {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .subheader {
   color: white;
   margin: 10px auto;
   max-width: 1100px;
+  font-size: 18px;
+  padding: 5px;
 }
 
 .button-container {
-  margin: 100px;
+  margin: 80px;
 }
 
 #play-button {
   border: 1px solid #4f6ce9;
-  /* font-size: 18px; */
 }
 
 #play-button:hover {
@@ -90,7 +97,7 @@ body {
   padding: 25px 50px;
   border-radius: 35px;
   font-size: 18px;
-  margin: 0 50px;
+  margin: 0 100px;
 }
 
 .button:hover {
@@ -108,7 +115,7 @@ body {
   border: 2px solid white;
   font-size: 15px;
 
-  margin: 0 75px;
+  margin: 0 35px;
 }
 
 .link:hover {
