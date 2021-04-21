@@ -1,7 +1,11 @@
-import GetTrack from './GetPlaylist';
+import React, { NavLink } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+// import HelloWorld from './HelloWorld';
+import Splash from './Splash';
+import GetPlaylist from './GetPlaylist';
 import { gql, useQuery } from '@apollo/client';
 
-import logo from './logo.svg';
 import './App.css';
 
 const GET_PLAYLIST = gql`
@@ -33,6 +37,12 @@ function App() {
 
   return (
     <div className="App">
+        <BrowserRouter>
+          <Route path="/" exact={true}><Splash /></Route>
+        </BrowserRouter>
+
+
+        {/* <HelloWorld /> */}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -46,7 +56,7 @@ function App() {
         >
           Learn React
         </a>
-        <GetTrack playlist={playlist}/>
+        <GetPlaylist playlist={playlist}/>
       </header>
     </div>
   );
