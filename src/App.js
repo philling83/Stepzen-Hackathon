@@ -1,3 +1,4 @@
+import {Route} from 'react-router-dom';
 import HelloWorld from './HelloWorld';
 import LosingPage from './losingPage';
 
@@ -7,6 +8,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <Route path='/' exact={true}>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -21,8 +23,11 @@ function App() {
           Learn React
         </a>
         <HelloWorld />
-        <LosingPage />
       </header>
+      </Route>
+        <Route path='/lost'>
+          <LosingPage />
+        </Route>
     </div>
   );
 }
