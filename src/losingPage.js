@@ -14,8 +14,8 @@ const LosingPage = () => {
 
     const imageStyle = {
         width: '20px',
-        margin: '10px',
-        marginBottom: '0px',
+        marginLeft: '10px',
+        marginBottom: '-3px'
     }
 
     const buttonStyle = {
@@ -30,6 +30,7 @@ const LosingPage = () => {
 
     const linkStyle = {
         textDecoration: 'none',
+        fontSize: '1.2rem'
     }
 
     const textStyle = {
@@ -42,6 +43,18 @@ const LosingPage = () => {
         justifyContent: 'space-evenly',
     }
 
+    const aboutStyle = {
+        textDecoration: 'none',
+        marginTop: '30px',
+        fontSize: '1.2rem'
+    }
+
+    const footerStyle = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignContent: 'space-evenly'
+    }
+
     const handlePlayAgain = () => {
         history.push('/');
     }
@@ -52,7 +65,7 @@ const LosingPage = () => {
                 Game Over!
             </div>
             <div style={buttonStyle} onClick={handlePlayAgain} id='PlayAgainBtn'>Play Again</div>
-            <div>
+            <div style={footerStyle}>
                 <div style={linksDivStyle} className='links'>
                     <a style={linkStyle} href="https://github.com/philling83">
                         Philip's Github
@@ -67,7 +80,7 @@ const LosingPage = () => {
                         <img style={imageStyle} src='./images/Github.png' alt='github link' />
                     </a>
                 </div>
-                <div>About</div>
+                <a style={aboutStyle} href="https://github.com/philling83/Stepzen-Hackathon">About</a>
             </div>
         </div>
     )
