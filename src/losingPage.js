@@ -1,6 +1,8 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 
 const LosingPage = () => {
+    const history = useHistory();
 
     const losingStyle = {
         height: '100vh',
@@ -40,26 +42,32 @@ const LosingPage = () => {
         justifyContent: 'space-evenly',
     }
 
+    const handlePlayAgain = () => {
+        history.push('/');
+    }
+
     return (
         <div style={losingStyle} className='losingPage'>
             <div style={textStyle}>
                 Game Over!
             </div>
-            {/* <button style={buttonStyle}>Play Again</button> */}
-            <div style={buttonStyle} id='PlayAgainBtn'>Play Again</div>
-            <div style={linksDivStyle} className='links'>
-                <a style={linkStyle} href="https://github.com/philling83">
-                    Philip's Github
-                    <img style={imageStyle} src='./images/Github.png' alt='github link' />
-                </a>
-                <a style={linkStyle} href="https://github.com/sal-wav">
-                    Salina's Github
-                    <img style={imageStyle} src='./images/Github.png' alt='github link' />
-                </a>
-                <a style={linkStyle} href="https://github.com/IvanGent">
-                    Ivan's Github
-                    <img style={imageStyle} src='./images/Github.png' alt='github link' />
-                </a>
+            <div style={buttonStyle} onClick={handlePlayAgain} id='PlayAgainBtn'>Play Again</div>
+            <div>
+                <div style={linksDivStyle} className='links'>
+                    <a style={linkStyle} href="https://github.com/philling83">
+                        Philip's Github
+                        <img style={imageStyle} src='./images/Github.png' alt='github link' />
+                    </a>
+                    <a style={linkStyle} href="https://github.com/sal-wav">
+                        Salina's Github
+                        <img style={imageStyle} src='./images/Github.png' alt='github link' />
+                    </a>
+                    <a style={linkStyle} href="https://github.com/IvanGent">
+                        Ivan's Github
+                        <img style={imageStyle} src='./images/Github.png' alt='github link' />
+                    </a>
+                </div>
+                <div>About</div>
             </div>
         </div>
     )
