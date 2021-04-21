@@ -1,9 +1,34 @@
 import GetTrack from './GetTrack';
+import { gql, useQuery } from '@apollo/client';
 
 import logo from './logo.svg';
 import './App.css';
 
+const GET_TRACK = gql`
+  query GetTrackQuery {
+    trackById {
+      name
+      popularity
+      explicit
+      images {
+        url
+      }
+      artists {
+        name
+      }
+    }
+  }
+`;
+
 function App() {
+
+  const { loading, error, data } = useQuery(GET_TRACK);
+
+  if (error) return <p>{JSON.stringify(error)}</p>;
+  if (loading) return <p>Loading ...</p>;
+
+  const track = data?.trackById
+
   return (
     <div className="App">
       <header className="App-header">
