@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {Route} from 'react-router-dom';
 // import HelloWorld from './HelloWorld';
 import LosingPage from './losingPage';
@@ -24,7 +25,8 @@ const GET_TRACK = gql`
 `;
 
 function App() {
-
+  const [track1, setTrack1] = useState();
+  const [track2, setTrack2] = useState();
   const { loading, error, data } = useQuery(GET_TRACK);
 
   if (error) return <p>{JSON.stringify(error)}</p>;
@@ -52,7 +54,7 @@ function App() {
       </header>
       </Route>
         <Route path='/lost'>
-          <LosingPage track={track} />
+          <LosingPage track2={track2} />
         </Route>
     </div>
   );

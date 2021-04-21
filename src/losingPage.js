@@ -1,7 +1,7 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
-const LosingPage = () => {
+const LosingPage = ({track2}) => {
     const history = useHistory();
 
     const losingStyle = {
@@ -10,6 +10,10 @@ const LosingPage = () => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-evenly',
+        // backgroundImage: track2.data.trackbyid
+        backgroundImage: `url("https://i.scdn.co/image/ab67616d0000b273575af309dea98bed121ebd3f")`,
+        // backgroundImageSize: '100%'
+        backgroundColor: 'transparent',
     }
 
     const imageStyle = {
