@@ -11,32 +11,52 @@ const LosingPage = () => {
     }
 
     const imageStyle = {
-        width: '25px',
+        width: '20px',
+        margin: '10px',
+        marginBottom: '0px',
     }
 
     const buttonStyle = {
         backgroundColor: 'red',
         outline: 'none',
-        borderRadius: '5px',
-        width: '100px',
+        borderRadius: '10px',
+        alignSelf: 'center',
+        padding: '1rem 2rem',
+        boxShadow: '0px 5px 5px gray',
+    }
+
+    const linkStyle = {
+        textDecoration: 'none',
+    }
+
+    const textStyle = {
+        fontSize: '3.5rem',
+        backgroundColor: 'red',
+        alignText:'bottom'
+    }
+
+    const linksDivStyle = {
+        display: 'flex',
+        justifyContent: 'space-evenly',
     }
 
     return (
         <div style={losingStyle} className='losingPage'>
-            <div>
+            <div style={textStyle}>
                 Game Over!
             </div>
-            <button style={buttonStyle}>Play Again</button>
-            <div className='links'>
-                <a href="https://github.com/philling83">
+            {/* <button style={buttonStyle}>Play Again</button> */}
+            <div style={buttonStyle}>Play Again</div>
+            <div style={linksDivStyle} className='links'>
+                <a style={linkStyle} href="https://github.com/philling83">
                     Philip's Github
                     <img style={imageStyle} src='./images/Github.png' alt='github link' />
                 </a>
-                <a href="https://github.com/sal-wav">
+                <a style={linkStyle} href="https://github.com/sal-wav">
                     Salina's Github
                     <img style={imageStyle} src='./images/Github.png' alt='github link' />
                 </a>
-                <a href="https://github.com/IvanGent">
+                <a style={linkStyle} href="https://github.com/IvanGent">
                     Ivan's Github
                     <img style={imageStyle} src='./images/Github.png' alt='github link' />
                 </a>
