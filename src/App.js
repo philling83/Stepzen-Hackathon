@@ -1,7 +1,11 @@
+import React, { NavLink } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+// import HelloWorld from './HelloWorld';
+import Splash from './Splash';
 import GetTrack from './GetTrack';
 import { gql, useQuery } from '@apollo/client';
 
-import logo from './logo.svg';
 import './App.css';
 
 const GET_TRACK = gql`
@@ -31,6 +35,12 @@ function App() {
 
   return (
     <div className="App">
+        <BrowserRouter>
+          <Route path="/" exact={true}><Splash /></Route>
+        </BrowserRouter>
+
+
+        {/* <HelloWorld /> */}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
