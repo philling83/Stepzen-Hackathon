@@ -19,19 +19,6 @@ const LosingPage = ({track2}) => {
         marginBottom: '-3px'
     }
 
-    const buttonStyle = {
-        // backgroundColor: 'rgb(113, 211, 110)',
-        backgroundColor: '#4f6ce9',
-        outline: 'none',
-        borderRadius: '10px',
-        alignSelf: 'center',
-        padding: '1rem 2rem',
-        boxShadow: '0px 5px 5px gray',
-        fontSize: '2.5rem',
-        cursor: 'pointer',
-        color: 'white',
-    }
-
     const textStyle = {
         fontSize: '8rem',
         alignText:'bottom',
@@ -43,12 +30,15 @@ const LosingPage = ({track2}) => {
         justifyContent: 'space-evenly',
     }
 
-    const aboutStyle = {
-        textDecoration: 'none',
-        marginTop: '30px',
-        fontSize: '1.2rem',
-        color: 'white',
-    }
+    // const aboutStyle = {
+    //     textDecoration: 'none',
+    //     marginTop: '30px',
+    //     fontSize: '1.2rem',
+    //     width: '4rem',
+    //     // color: 'white',
+    //     backgroundColor: 'red',
+    //     alignSelf: 'center'
+    // }
 
     const footerStyle = {
         display: 'flex',
@@ -64,7 +54,6 @@ const LosingPage = ({track2}) => {
         maxWidth: '800px',
         padding: '5px',
         borderRadius: '20px',
-        // backgroundColor: 'rgba(255,255,255,0)',
         boxShadow: '0px 0px 100px 100px rgba(255,255,255,1)'
     }
 
@@ -80,9 +69,6 @@ const LosingPage = ({track2}) => {
 
     return (
         <div style={mainStyle}>
-            {/* <div>
-
-            </div> */}
             <img style={trackArtStyle} src="https://i.scdn.co/image/ab67616d0000b273575af309dea98bed121ebd3f" alt='background'/>
             {/* <img style={trackArtStyle} src={track2.data.} alt='background'/> This would be for when data is retrieved */}
             <div style={losingStyle} className='losingPage'>
@@ -105,7 +91,7 @@ const LosingPage = ({track2}) => {
                             <img style={imageStyle} src='./images/Github.png' alt='github link' />
                         </a>
                     </div>
-                    <a style={aboutStyle} href="https://github.com/philling83/Stepzen-Hackathon">About</a>
+                    <a className='about' href="https://github.com/philling83/Stepzen-Hackathon">About</a>
                 </div>
             </div>
         </div>

@@ -55,6 +55,21 @@ body {
   transform: scale(0.9); */
 }
 
+.about {
+   text-decoration: none;
+   margin-top: 30px;
+   font-size: 1.2rem;
+   width: 4rem;
+   color: white;
+   /* background-color: red; */
+   align-self: center;
+}
+
+.about:hover {
+  cursor: pointer;
+  color: Black;
+}
+
 .header-container {
   color: white;
   margin: 40px;
