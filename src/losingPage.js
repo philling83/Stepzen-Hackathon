@@ -20,7 +20,8 @@ const LosingPage = ({track2}) => {
     }
 
     const buttonStyle = {
-        backgroundColor: 'rgb(113, 211, 110)',
+        // backgroundColor: 'rgb(113, 211, 110)',
+        backgroundColor: '#4f6ce9',
         outline: 'none',
         borderRadius: '10px',
         alignSelf: 'center',
@@ -60,7 +61,11 @@ const LosingPage = ({track2}) => {
         opacity: '0.5',
         zIndex: '-1',
         alignSelf: 'center',
-        maxWidth: '700px',
+        maxWidth: '800px',
+        padding: '5px',
+        borderRadius: '20px',
+        // backgroundColor: 'rgba(255,255,255,0)',
+        boxShadow: '0px 0px 100px 100px rgba(255,255,255,1)'
     }
 
     const mainStyle = {
@@ -75,12 +80,16 @@ const LosingPage = ({track2}) => {
 
     return (
         <div style={mainStyle}>
+            {/* <div>
+
+            </div> */}
             <img style={trackArtStyle} src="https://i.scdn.co/image/ab67616d0000b273575af309dea98bed121ebd3f" alt='background'/>
+            {/* <img style={trackArtStyle} src={track2.data.} alt='background'/> This would be for when data is retrieved */}
             <div style={losingStyle} className='losingPage'>
                 <div style={textStyle}>
                     Game Over!
                 </div>
-                <div style={buttonStyle} onClick={handlePlayAgain} id='PlayAgainBtn'>Play Again</div>
+                <button className='button' onClick={handlePlayAgain} id='PlayAgainBtn'>Play Again</button>
                 <div style={footerStyle}>
                     <div style={linksDivStyle} className='links'>
                         <a className='link' href="https://github.com/philling83">
