@@ -39,17 +39,19 @@ function App() {
   console.log(data);
 
   return (
-    <BrowserRouter>
-      <Route path="/" exact={true}>
-        <Splash />
-      </Route>
-      <Route path="/game" exact={true}>
-        <GetPlaylist playlist={playlist} tracks={tracks} />
-      </Route>
-      <Route path='/lost'>
-        <LosingPage track2={track2} />
-      </Route>
-    </BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <Route path="/" exact={true}>
+          <Splash />
+        </Route>
+        <Route path="/game" exact={true}>
+          <GetPlaylist playlist={playlist} tracks={tracks} />
+        </Route>
+        <Route path='/lost'>
+          <LosingPage track2={track2} />
+        </Route>
+      </BrowserRouter>
+    </div>
   );
 }
 
