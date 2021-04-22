@@ -35,6 +35,7 @@ function GetPlaylist({ playlist, tracks }) {
       if (currentHighScore > localStorage.getItem('highscore')) {
         localStorage.setItem('highscore', currentHighScore);
       }
+      localStorage.setItem('lostTrack', playlist.images[rightSongIndex].url)
       history.push('/lost');
     };
   };
@@ -53,6 +54,7 @@ function GetPlaylist({ playlist, tracks }) {
       if (currentHighScore > localStorage.getItem('highscore')) {
         localStorage.setItem('highscore', currentHighScore);
       }
+      localStorage.setItem('lostTrack', playlist.images[rightSongIndex].url)
       history.push('/lost');
     };
   };
@@ -71,6 +73,7 @@ function GetPlaylist({ playlist, tracks }) {
       if (currentHighScore > localStorage.getItem('highscore')) {
         localStorage.setItem('highscore', currentHighScore);
       }
+      localStorage.setItem('lostTrack', playlist.images[rightSongIndex].url)
       history.push('/lost');
     };
   };

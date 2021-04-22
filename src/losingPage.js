@@ -3,6 +3,9 @@ import { useHistory } from 'react-router-dom';
 
 const LosingPage = ({track2}) => {
     const history = useHistory();
+    const image = localStorage.getItem('lostTrack');
+
+    console.log(image);
 
     const losingStyle = {
         position: 'absolute',
@@ -42,6 +45,7 @@ const LosingPage = ({track2}) => {
         zIndex: '-1',
         alignSelf: 'center',
         maxWidth: '800px',
+        width: '45%',
         padding: '5px',
         borderRadius: '20px',
         boxShadow: '0px 0px 100px 100px rgba(255,255,255,1)'
@@ -59,8 +63,8 @@ const LosingPage = ({track2}) => {
 
     return (
         <div style={mainStyle}>
-            <img style={trackArtStyle} src="https://i.scdn.co/image/ab67616d0000b273575af309dea98bed121ebd3f" alt='background'/>
-            {/* <img style={trackArtStyle} src={track2.data.} alt='background'/> This would be for when data is retrieved */}
+            {/* <img style={trackArtStyle} src="https://i.scdn.co/image/ab67616d0000b273575af309dea98bed121ebd3f" alt='background'/> */}
+            <img style={trackArtStyle} src={image} alt='background'/>
             <div style={losingStyle} className='losingPage'>
                 <div style={textStyle}>
                     Game Over!
