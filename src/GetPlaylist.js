@@ -83,7 +83,7 @@ function GetPlaylist({ playlist, tracks }) {
       <div className="game_grid">
         <div className="song_tile">
           <div className="left_song">
-            <img className="game_image" src={gameFeed.song1.image.url}></img>
+            <img className="game_image" src={gameFeed.song1.image.url} alt='album cover'/>
             <div className="text">{gameFeed.song1.track.name} by {gameFeed.song1.artist}</div>
             <div className="text">Has a Popularity Score of: </div>
             <div className="text popularity">{gameFeed.song1.track.popularity}</div>
@@ -91,7 +91,7 @@ function GetPlaylist({ playlist, tracks }) {
         </div>
         <div className="circle">VS</div>
         <div className="right_song">
-          <img className="game_image" src={gameFeed.song2.image.url}></img>
+          <img className="game_image" src={gameFeed.song2.image.url} alt='album cover'/>
           <div className="text">{gameFeed.song2.track.name} by {gameFeed.song2.artist}</div>
           <div>
             <button className="game_button" onClick={checkHigher}>Higher</button>

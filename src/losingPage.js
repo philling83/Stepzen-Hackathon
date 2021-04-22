@@ -1,11 +1,11 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-const LosingPage = ({track2}) => {
+const LosingPage = () => {
     const history = useHistory();
     const image = localStorage.getItem('lostTrack');
-
-    console.log(image);
+    const highScore = localStorage.getItem('highscore');
+    const currentScore = localStorage.getItem('currentScore')
 
     const losingStyle = {
         position: 'absolute',
@@ -45,7 +45,7 @@ const LosingPage = ({track2}) => {
         zIndex: '-1',
         alignSelf: 'center',
         maxWidth: '800px',
-        width: '45%',
+        width: '40%',
         padding: '5px',
         borderRadius: '20px',
         boxShadow: '0px 0px 100px 100px rgba(255,255,255,1)'
@@ -57,18 +57,26 @@ const LosingPage = ({track2}) => {
         height: '100vh'
     };
 
+    const highScoreStyle = {
+        color: 'white',
+        margin: '0',
+        fontSize: '2.3rem'
+    }
+
     const handlePlayAgain = () => {
         history.push('/');
     };
 
     return (
         <div style={mainStyle}>
-            {/* <img style={trackArtStyle} src="https://i.scdn.co/image/ab67616d0000b273575af309dea98bed121ebd3f" alt='background'/> */}
             <img style={trackArtStyle} src={image} alt='background'/>
             <div style={losingStyle} className='losingPage'>
                 <div style={textStyle}>
                     Game Over!
+                <p style={highScoreStyle}>Highest Score: {highScore}</p>
+                <p style={highScoreStyle}>Score: {currentScore}</p>
                 </div>
+                
                 <button className='button' onClick={handlePlayAgain} id='PlayAgainBtn'>Play Again</button>
                 <div style={footerStyle}>
                     <div style={linksDivStyle} className='links'>

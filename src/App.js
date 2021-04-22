@@ -25,9 +25,6 @@ const GET_PLAYLIST = gql`
 `;
 
 function App() {
-  const [track1, setTrack1] = useState();
-  const [track2, setTrack2] = useState();
-
   const { loading, error, data } = useQuery(GET_PLAYLIST);
 
   if (error) return <p>{JSON.stringify(error)}</p>;
@@ -48,7 +45,7 @@ function App() {
           <GetPlaylist playlist={playlist} tracks={tracks} />
         </Route>
         <Route path='/lost'>
-          <LosingPage track2={track2} />
+          <LosingPage/>
         </Route>
       </BrowserRouter>
     </div>
