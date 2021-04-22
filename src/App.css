@@ -167,7 +167,7 @@ body {
 }
 
 .right_song {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -176,16 +176,12 @@ body {
 }
 
 .left_song {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 70vh;
   justify-content: space-around;
-}
-
-.game_image {
-  justify-self: start;
 }
 
 .popularity {

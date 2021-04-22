@@ -36,8 +36,6 @@ function App() {
   const playlist = data.playlistById;
   const tracks = data.tracks;
 
-  console.log(data);
-
   return (
     <div className="App">
       <BrowserRouter>
