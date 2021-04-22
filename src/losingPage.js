@@ -5,15 +5,12 @@ const LosingPage = ({track2}) => {
     const history = useHistory();
 
     const losingStyle = {
-        // position: 'absolute',
+        position: 'absolute',
         height: '100vh',
         width: '100vw',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-evenly',
-        // backgroundImage: track2.data.trackbyid
-        // backgroundImage: `url("https://i.scdn.co/image/ab67616d0000b273575af309dea98bed121ebd3f")`,
-        // backgroundColor: 'transparent',
     }
 
     const imageStyle = {
@@ -31,16 +28,13 @@ const LosingPage = ({track2}) => {
         boxShadow: '0px 5px 5px gray',
         fontSize: '2.5rem',
         cursor: 'pointer',
-    }
-
-    const linkStyle = {
-        textDecoration: 'none',
-        fontSize: '1.2rem'
+        color: 'white',
     }
 
     const textStyle = {
         fontSize: '8rem',
-        alignText:'bottom'
+        alignText:'bottom',
+        color: 'white'
     }
 
     const linksDivStyle = {
@@ -51,7 +45,8 @@ const LosingPage = ({track2}) => {
     const aboutStyle = {
         textDecoration: 'none',
         marginTop: '30px',
-        fontSize: '1.2rem'
+        fontSize: '1.2rem',
+        color: 'white',
     }
 
     const footerStyle = {
@@ -61,10 +56,17 @@ const LosingPage = ({track2}) => {
     }
 
     const trackArtStyle = {
-        position: 'absolute',
+        display: 'block',
         opacity: '0.5',
         zIndex: '-1',
+        alignSelf: 'center',
+        maxWidth: '700px',
+    }
 
+    const mainStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        height: '100vh'
     }
 
     const handlePlayAgain = () => {
@@ -72,32 +74,32 @@ const LosingPage = ({track2}) => {
     }
 
     return (
-        <>
+        <div style={mainStyle}>
             <img style={trackArtStyle} src="https://i.scdn.co/image/ab67616d0000b273575af309dea98bed121ebd3f" alt='background'/>
             <div style={losingStyle} className='losingPage'>
-            <div style={textStyle}>
-                Game Over!
-            </div>
-            <div style={buttonStyle} onClick={handlePlayAgain} id='PlayAgainBtn'>Play Again</div>
-            <div style={footerStyle}>
-                <div style={linksDivStyle} className='links'>
-                    <a style={linkStyle} href="https://github.com/philling83">
-                        Philip's Github
-                        <img style={imageStyle} src='./images/Github.png' alt='github link' />
-                    </a>
-                    <a style={linkStyle} href="https://github.com/sal-wav">
-                        Salina's Github
-                        <img style={imageStyle} src='./images/Github.png' alt='github link' />
-                    </a>
-                    <a style={linkStyle} href="https://github.com/IvanGent">
-                        Ivan's Github
-                        <img style={imageStyle} src='./images/Github.png' alt='github link' />
-                    </a>
+                <div style={textStyle}>
+                    Game Over!
                 </div>
-                <a style={aboutStyle} href="https://github.com/philling83/Stepzen-Hackathon">About</a>
+                <div style={buttonStyle} onClick={handlePlayAgain} id='PlayAgainBtn'>Play Again</div>
+                <div style={footerStyle}>
+                    <div style={linksDivStyle} className='links'>
+                        <a className='link' href="https://github.com/philling83">
+                            Philip's Github
+                            <img style={imageStyle} src='./images/Github.png' alt='github link' />
+                        </a>
+                        <a className='link' href="https://github.com/sal-wav">
+                            Salina's Github
+                            <img style={imageStyle} src='./images/Github.png' alt='github link' />
+                        </a>
+                        <a className='link' href="https://github.com/IvanGent">
+                            Ivan's Github
+                            <img style={imageStyle} src='./images/Github.png' alt='github link' />
+                        </a>
+                    </div>
+                    <a style={aboutStyle} href="https://github.com/philling83/Stepzen-Hackathon">About</a>
+                </div>
             </div>
         </div>
-        </>
     )
 };
 
