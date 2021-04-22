@@ -29,7 +29,6 @@ function GetPlaylist({ playlist, tracks }) {
       });
       setLeftSongIndex(leftSongIndex => leftSongIndex + 1);
       setRightSongIndex(rightSongIndex => rightSongIndex + 1);
-      setHighScore(highScore => highScore + 1);
       setCurrentHighScore(currentHighScore => currentHighScore + 1);
     } else {
       if (currentHighScore > localStorage.getItem('highscore')) {
@@ -47,7 +46,6 @@ function GetPlaylist({ playlist, tracks }) {
       });
       setLeftSongIndex(leftSongIndex => leftSongIndex + 1);
       setRightSongIndex(rightSongIndex => rightSongIndex + 1);
-      setHighScore(highScore => highScore + 1);
       setCurrentHighScore(currentHighScore => currentHighScore + 1);
     } else {
       if (currentHighScore > localStorage.getItem('highscore')) {
@@ -65,7 +63,6 @@ function GetPlaylist({ playlist, tracks }) {
       });
       setLeftSongIndex(leftSongIndex => leftSongIndex + 1);
       setRightSongIndex(rightSongIndex => rightSongIndex + 1);
-      setHighScore(highScore => highScore + 1);
       setCurrentHighScore(currentHighScore => currentHighScore + 1);
     } else {
       if (currentHighScore > localStorage.getItem('highscore')) {
