@@ -153,7 +153,8 @@ body {
 }
 
 .text {
-  color: white
+  color: white;
+  font-size: 18px;
 }
 
 .game_grid {
@@ -170,6 +171,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 70vh;
+  justify-content: space-around;
 }
 
 .left_song {
@@ -177,6 +180,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 70vh;
+  justify-content: space-around;
+}
+
+.game_image {
+  justify-self: start;
+}
+
+.popularity {
+  color: #fff989;
+  font-size: 35px;
 }
 
 .high_score_container {
@@ -223,4 +237,10 @@ body {
 .game_button:hover {
   background-color: white;
   color: black;
+}
+
+.score {
+  font-size: 20px;
+  color: #fff989;
+  padding-bottom: 25px;
 }
