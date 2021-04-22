@@ -23,12 +23,13 @@ function GetPlaylist({ playlist, tracks }) {
 
   const checkHigher = () => {
     if (gameFeed.song2.track.popularity > gameFeed.song1.track.popularity) {
+      setGameFeed(gameFeed => gameFeed = {
+        song1: { artist: tracks[leftSongIndex + 1].artist, image: playlist.images[leftSongIndex + 1], track: tracks[leftSongIndex + 1] },
+        song2: { artist: tracks[rightSongIndex + 1].artist, image: playlist.images[rightSongIndex + 1], track: tracks[rightSongIndex + 1] }
+      });
       setLeftSongIndex(leftSongIndex => leftSongIndex + 1);
       setRightSongIndex(rightSongIndex => rightSongIndex + 1);
-      setGameFeed(gameFeed => gameFeed = {
-        song1: { artist: tracks[leftSongIndex].artist, image: playlist.images[leftSongIndex], track: tracks[leftSongIndex] },
-        song2: { artist: tracks[rightSongIndex].artist, image: playlist.images[rightSongIndex], track: tracks[rightSongIndex] }
-      });
+      setHighScore(highScore => highScore + 1);
       setCurrentHighScore(currentHighScore => currentHighScore + 1);
     } else {
       if (currentHighScore > localStorage.getItem('highscore')) {
@@ -40,12 +41,13 @@ function GetPlaylist({ playlist, tracks }) {
 
   const checkLower = () => {
     if (gameFeed.song2.track.popularity < gameFeed.song1.track.popularity) {
+      setGameFeed(gameFeed => gameFeed = {
+        song1: { artist: tracks[leftSongIndex + 1].artist, image: playlist.images[leftSongIndex + 1], track: tracks[leftSongIndex + 1] },
+        song2: { artist: tracks[rightSongIndex + 1].artist, image: playlist.images[rightSongIndex + 1], track: tracks[rightSongIndex + 1] }
+      });
       setLeftSongIndex(leftSongIndex => leftSongIndex + 1);
       setRightSongIndex(rightSongIndex => rightSongIndex + 1);
-      setGameFeed(gameFeed => gameFeed = {
-        song1: { artist: tracks[leftSongIndex].artist, image: playlist.images[leftSongIndex], track: tracks[leftSongIndex] },
-        song2: { artist: tracks[rightSongIndex].artist, image: playlist.images[rightSongIndex], track: tracks[rightSongIndex] }
-      });
+      setHighScore(highScore => highScore + 1);
       setCurrentHighScore(currentHighScore => currentHighScore + 1);
     } else {
       if (currentHighScore > localStorage.getItem('highscore')) {
@@ -57,12 +59,13 @@ function GetPlaylist({ playlist, tracks }) {
 
   const checkTie = () => {
     if (gameFeed.song2.track.popularity === gameFeed.song1.track.popularity) {
+      setGameFeed(gameFeed => gameFeed = {
+        song1: { artist: tracks[leftSongIndex + 1].artist, image: playlist.images[leftSongIndex + 1], track: tracks[leftSongIndex + 1] },
+        song2: { artist: tracks[rightSongIndex + 1].artist, image: playlist.images[rightSongIndex + 1], track: tracks[rightSongIndex + 1] }
+      });
       setLeftSongIndex(leftSongIndex => leftSongIndex + 1);
       setRightSongIndex(rightSongIndex => rightSongIndex + 1);
-      setGameFeed(gameFeed => gameFeed = {
-        song1: { artist: tracks[leftSongIndex].artist, image: playlist.images[leftSongIndex], track: tracks[leftSongIndex] },
-        song2: { artist: tracks[rightSongIndex].artist, image: playlist.images[rightSongIndex], track: tracks[rightSongIndex] }
-      });
+      setHighScore(highScore => highScore + 1);
       setCurrentHighScore(currentHighScore => currentHighScore + 1);
     } else {
       if (currentHighScore > localStorage.getItem('highscore')) {
