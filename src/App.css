@@ -32,10 +32,6 @@ body {
   color: #61dafb;
 }
 
-#PlayAgainBtn:hover {
-  box-shadow: 10px 0px 0px gray;
-  transform: scale(0.9);
-}
 
 @keyframes App-logo-spin {
   from {
@@ -45,6 +41,11 @@ body {
     transform: rotate(360deg);
   }
 } */
+
+#PlayAgainBtn:hover {
+  box-shadow: 10px 0px 0px gray;
+  transform: scale(0.9);
+}
 
 .header-container {
   color: white;

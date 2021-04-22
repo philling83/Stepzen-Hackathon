@@ -38,10 +38,10 @@ function App() {
 
   const { loading, error, data } = useQuery(GET_PLAYLIST);
 
-  if (error) return <p>{JSON.stringify(error)}</p>;
+  // if (error) return <p>{JSON.stringify(error)}</p>;
   // if (loading) return <p>Loading ...</p>;
 
-  const playlist = data.playlistById
+  // const playlist = data.playlistById
 
   return (
     <div className="App">
@@ -65,7 +65,7 @@ function App() {
         >
           Learn React
         </a>
-        <GetPlaylist playlist={playlist}/>
+        {/* <GetPlaylist playlist={playlist}/> */}
       </header>
       </Route>
         <Route path='/lost'>

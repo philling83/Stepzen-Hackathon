@@ -13,7 +13,7 @@ const LosingPage = ({track2}) => {
         justifyContent: 'space-evenly',
         // backgroundImage: track2.data.trackbyid
         // backgroundImage: `url("https://i.scdn.co/image/ab67616d0000b273575af309dea98bed121ebd3f")`,
-        backgroundColor: 'transparent',
+        // backgroundColor: 'transparent',
     }
 
     const imageStyle = {
@@ -62,6 +62,9 @@ const LosingPage = ({track2}) => {
 
     const trackArtStyle = {
         position: 'absolute',
+        opacity: '0.5',
+        zIndex: '-1',
+
     }
 
     const handlePlayAgain = () => {
