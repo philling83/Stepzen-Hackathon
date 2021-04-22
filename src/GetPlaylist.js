@@ -1,27 +1,66 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 
 function GetPlaylist({ playlist, tracks }) {
 
-  // let i = 0;
-  // let j = 1;
+  const history = useHistory()
 
   const [leftSongIndex, setLeftSongIndex] = useState(0);
   const [rightSongIndex, setRightSongIndex] = useState(1);
-  const [trackFeed, setTrackFeed] = useState({ images: playlist.images, tracks });
+  // const [trackFeed, setTrackFeed] = useState({ images: playlist.images, tracks });
   const [gameFeed, setGameFeed] = useState({ song1: {artist: tracks[leftSongIndex].artist, image: playlist.images[leftSongIndex], track: tracks[leftSongIndex]},
                                              song2: {artist: tracks[rightSongIndex].artist, image: playlist.images[rightSongIndex], track: tracks[rightSongIndex]}});
   const [highScore, setHighScore] = useState(0);
   const [currentHighScore, setCurrentHighScore] = useState(0);
 
+  console.log(leftSongIndex)
+  console.log(gameFeed)
+  
   const checkHigher = () => {
-    setLeftSongIndex(leftSongIndex + 1);
-    setGameFeed({
-      ssong1: { artist: tracks[leftSongIndex].artist, image: playlist.images[leftSongIndex], track: tracks[leftSongIndex] },
-      song2: { artist: tracks[rightSongIndex].artist, image: playlist.images[rightSongIndex], track: tracks[rightSongIndex] }
-    })
-    console.log(leftSongIndex)
-  }
+    if (gameFeed.song2.track.popularity > gameFeed.song1.track.popularity) {
+      setLeftSongIndex(leftSongIndex => leftSongIndex + 1);
+      setRightSongIndex(rightSongIndex => rightSongIndex + 1);
+      setGameFeed(gameFeed => gameFeed = {
+        song1: { artist: tracks[leftSongIndex].artist, image: playlist.images[leftSongIndex], track: tracks[leftSongIndex] },
+        song2: { artist: tracks[rightSongIndex].artist, image: playlist.images[rightSongIndex], track: tracks[rightSongIndex] }
+      });
+      setHighScore(highScore => highScore + 1);
+      setCurrentHighScore(currentHighScore => currentHighScore + 1);
+    } else {
+      history.push('/lost');
+    };
+  };
+
+  const checkLower = () => {
+    if (gameFeed.song2.track.popularity < gameFeed.song1.track.popularity) {
+      setLeftSongIndex(leftSongIndex => leftSongIndex + 1);
+      setRightSongIndex(rightSongIndex => rightSongIndex + 1);
+      setGameFeed(gameFeed => gameFeed = {
+        song1: { artist: tracks[leftSongIndex].artist, image: playlist.images[leftSongIndex], track: tracks[leftSongIndex] },
+        song2: { artist: tracks[rightSongIndex].artist, image: playlist.images[rightSongIndex], track: tracks[rightSongIndex] }
+      });
+      setHighScore(highScore => highScore + 1);
+      setCurrentHighScore(currentHighScore => currentHighScore + 1);
+    } else {
+      history.push('/lost');
+    };
+  };
+
+  const checkTie = () => {
+    if (gameFeed.song2.track.popularity === gameFeed.song1.track.popularity) {
+      setLeftSongIndex(leftSongIndex => leftSongIndex + 1);
+      setRightSongIndex(rightSongIndex => rightSongIndex + 1);
+      setGameFeed(gameFeed => gameFeed = {
+        song1: { artist: tracks[leftSongIndex].artist, image: playlist.images[leftSongIndex], track: tracks[leftSongIndex] },
+        song2: { artist: tracks[rightSongIndex].artist, image: playlist.images[rightSongIndex], track: tracks[rightSongIndex] }
+      });
+      setHighScore(highScore => highScore + 1);
+      setCurrentHighScore(currentHighScore => currentHighScore + 1);
+    } else {
+      history.push('/lost');
+    };
+  };
 
   return (
     <>
@@ -42,10 +81,10 @@ function GetPlaylist({ playlist, tracks }) {
             <button className="game_button" onClick={checkHigher}>Higher</button>
           </div>
           <div>
-            <button className="game_button">Lower</button>
+            <button className="game_button" onClick={checkLower}>Lower</button>
           </div>
           <div>
-            <button className="game_button">Tied?!</button>
+            <button className="game_button" onClick={checkTie}>Tied?!</button>
           </div>
           <div className="text">Popularity Score than {gameFeed.song1.track.name}</div>
         </div>

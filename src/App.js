@@ -1,11 +1,10 @@
-import {useState} from 'react';
-import LosingPage from './losingPage';
-import React, { NavLink } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { gql, useQuery } from '@apollo/client';
 
 import Splash from './Splash';
 import GetPlaylist from './GetPlaylist';
+import LosingPage from './losingPage';
 
 import './App.css';
 
@@ -34,8 +33,10 @@ function App() {
   if (error) return <p>{JSON.stringify(error)}</p>;
   if (loading) return <p>Loading ...</p>;
 
-  const playlist = data.playlistById
-  const tracks = data.tracks
+  const playlist = data.playlistById;
+  const tracks = data.tracks;
+
+  console.log(data);
 
   return (
     <BrowserRouter>

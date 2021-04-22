@@ -1,5 +1,5 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const LosingPage = ({track2}) => {
     const history = useHistory();
@@ -11,30 +11,30 @@ const LosingPage = ({track2}) => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-evenly',
-    }
+    };
 
     const imageStyle = {
         width: '20px',
         marginLeft: '10px',
         marginBottom: '-3px'
-    }
+    };
 
     const textStyle = {
         fontSize: '8rem',
         alignText:'bottom',
         color: 'white'
-    }
+    };
 
     const linksDivStyle = {
         display: 'flex',
         justifyContent: 'space-evenly',
-    }
+    };
 
     const footerStyle = {
         display: 'flex',
         flexDirection: 'column',
         alignContent: 'space-evenly'
-    }
+    };
 
     const trackArtStyle = {
         display: 'block',
@@ -45,17 +45,17 @@ const LosingPage = ({track2}) => {
         padding: '5px',
         borderRadius: '20px',
         boxShadow: '0px 0px 100px 100px rgba(255,255,255,1)'
-    }
+    };
 
     const mainStyle = {
         display: 'flex',
         justifyContent: 'center',
         height: '100vh'
-    }
+    };
 
     const handlePlayAgain = () => {
         history.push('/');
-    }
+    };
 
     return (
         <div style={mainStyle}>
