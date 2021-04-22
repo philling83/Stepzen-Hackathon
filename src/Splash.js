@@ -1,6 +1,14 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom'
 
 const Splash = () => {
+
+    let history = useHistory();
+
+    const redirect = () => {
+        history.push('/game')
+    }
+
     return (
         <div className="splash-container">
             <div className="header-container">
@@ -11,7 +19,7 @@ const Splash = () => {
                 <h2 className="main-subheader">Which song is more popular?</h2>
             </div>
             <div className="main-button-container">
-                <button id="play-button" className="button">Start Playing!</button>
+                <button id="play-button" className="button" onClick={redirect}>Start Playing!</button>
                 <a href="https://github.com/philling83/Stepzen-Hackathon" className="button">GitHub Repo</a>
             </div>
             <div className="subheader-container">

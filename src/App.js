@@ -1,10 +1,9 @@
 import React, { NavLink } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { gql, useQuery } from '@apollo/client';
 
-// import HelloWorld from './HelloWorld';
 import Splash from './Splash';
 import GetPlaylist from './GetPlaylist';
-import { gql, useQuery } from '@apollo/client';
 
 import './App.css';
 
@@ -34,30 +33,20 @@ function App() {
   if (loading) return <p>Loading ...</p>;
 
   const playlist = data.playlistById
+  const tracks = data.tracks
 
   return (
     <div className="App">
         <BrowserRouter>
-          <Route path="/" exact={true}><Splash /></Route>
+          <Route path="/" exact={true}>
+            <Splash />
+          </Route>
+        <Route path="/game" exact={true}>
+          <GetPlaylist playlist={playlist} tracks={tracks} />
+        </Route>
         </BrowserRouter>
 
 
-        {/* <HelloWorld /> */}
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <GetPlaylist playlist={playlist}/>
-      </header>
     </div>
   );
 }

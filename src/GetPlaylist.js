@@ -1,37 +1,32 @@
-// import { gql, useQuery } from '@apollo/client';
+import React, { useState } from 'react';
 
-// const getToken = async () => {
-  
-//   const result= await fetch('http://accounts.spotify.com/api/token', {
-//     method: "POST",
-//     headers: {
-//       'Content-Type' : 'application/x-www-form-urlencoded',
-//       'Authorization' : 'Basic ' + btoa(process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_CLIENT_SECRET)
-//     },
-//     body: 'grant_type=client_credentials'
-//   });
 
-//   const data = await result.json();
-//   return data.access_token;
-// }
+function GetPlaylist({ playlist, tracks }) {
 
-// console.log(getToken())
-
-function GetTrack({ playlist }) {
+  const [trackFeed, setTrackFeed] = useState({artists: playlist.artists, images: playlist.images, tracks})
+  const [gameFeed, setGameFeed] = useState({ song1: {artist: playlist.artists[0], image: playlist.images[0], track: tracks[0]},
+                                             song2: {artist: playlist.artists[1], image: playlist.images[1], track: tracks[1]}})
 
   return (
     <>
-      <p>StepZen says: "{JSON.stringify(playlist.artists)}"</p>
-      <a
-        className="App-link"
-        href="https://stepzen.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn StepZen
-      </a>
+      <div className="game_grid">
+        <div className="song_tile">
+          <div className="left_song">
+            <img src={gameFeed.song1.image.url}></img>
+            <div className="text">{gameFeed.song1.track.name}</div>
+            <div className="text">{gameFeed.song1.artist.name}</div>
+          </div>
+        </div>
+        <div className="song_tile">
+          <div className="right_song">
+            <img src={gameFeed.song2.image.url}></img>
+            <div className="text">{gameFeed.song2.track.name}</div>
+            <div className="text">{gameFeed.song2.artist.name}</div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
 
-export default GetTrack;
+export default GetPlaylist;
