@@ -133,6 +133,7 @@ body {
 .button:hover {
   background-color: white;
   color: #4f6ce9;
+  transform: scale(0.9);
 }
 
 .link {
