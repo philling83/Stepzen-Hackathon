@@ -2,7 +2,6 @@ type Track {
     name: String
     popularity: Int
     artist: String
-    image_url: String
 }
 
 type Image {
@@ -16,7 +15,6 @@ type Query {
             {field:"name",path:"track.name"}
             {field:"popularity",path:"track.popularity"}
             {field:"artist",path:"track.album.artists[0].name"}
-            {field:"image_url",path:"track.album.images[].url"}
         ]
         resultroot: "tracks.items[]"
         endpoint: "https://api.spotify.com/v1/playlists/$playlistid"
@@ -27,7 +25,7 @@ type Query {
         setters: [
             {field:"url",path:"url"}
             ]
-        resultroot: "tracks.items[].track.album.images[]"
+        resultroot: "tracks.items[].track.album.images[1]"
         endpoint: "https://api.spotify.com/v1/playlists/$playlistid"
         configuration: "spotify_config"
     )
