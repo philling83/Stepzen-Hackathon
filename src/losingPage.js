@@ -5,14 +5,14 @@ const LosingPage = ({track2}) => {
     const history = useHistory();
 
     const losingStyle = {
+        // position: 'absolute',
         height: '100vh',
         width: '100vw',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-evenly',
         // backgroundImage: track2.data.trackbyid
-        backgroundImage: `url("https://i.scdn.co/image/ab67616d0000b273575af309dea98bed121ebd3f")`,
-        // backgroundImageSize: '100%'
+        // backgroundImage: `url("https://i.scdn.co/image/ab67616d0000b273575af309dea98bed121ebd3f")`,
         backgroundColor: 'transparent',
     }
 
@@ -60,12 +60,18 @@ const LosingPage = ({track2}) => {
         alignContent: 'space-evenly'
     }
 
+    const trackArtStyle = {
+        position: 'absolute',
+    }
+
     const handlePlayAgain = () => {
         history.push('/');
     }
 
     return (
-        <div style={losingStyle} className='losingPage'>
+        <>
+            <img style={trackArtStyle} src="https://i.scdn.co/image/ab67616d0000b273575af309dea98bed121ebd3f" alt='background'/>
+            <div style={losingStyle} className='losingPage'>
             <div style={textStyle}>
                 Game Over!
             </div>
@@ -88,6 +94,7 @@ const LosingPage = ({track2}) => {
                 <a style={aboutStyle} href="https://github.com/philling83/Stepzen-Hackathon">About</a>
             </div>
         </div>
+        </>
     )
 };
 
