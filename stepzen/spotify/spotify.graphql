@@ -1,31 +1,20 @@
 type Track {
     name: String
     popularity: Int
+    artist: String
 }
 
 type Image {
     url: String
 }
 
-type Artist {
-    name: String
-}
-
 type Query {
-    artists: [Artist]
-    @rest(
-        setters: [
-            {field:"name",path:"name"}
-            ]
-        resultroot: "tracks.items[].track.album.artists[]"
-        endpoint: "https://api.spotify.com/v1/playlists/$playlistid"
-        configuration: "spotify_config"
-    )
     tracks: [Track]
     @rest(
         setters: [
             {field:"name",path:"track.name"}
             {field:"popularity",path:"track.popularity"}
+            {field:"artist",path:"track.album.artists[0].name"}
         ]
         resultroot: "tracks.items[]"
         endpoint: "https://api.spotify.com/v1/playlists/$playlistid"
@@ -47,8 +36,6 @@ type Playlist {
     name: String!
     tracks: [Track]
         @materializer (query: "tracks")
-    artists: [Artist]
-        @materializer (query: "artists")
     images: [Image]
         @materializer (query: "images")
 }
