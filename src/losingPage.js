@@ -30,16 +30,6 @@ const LosingPage = ({track2}) => {
         justifyContent: 'space-evenly',
     }
 
-    // const aboutStyle = {
-    //     textDecoration: 'none',
-    //     marginTop: '30px',
-    //     fontSize: '1.2rem',
-    //     width: '4rem',
-    //     // color: 'white',
-    //     backgroundColor: 'red',
-    //     alignSelf: 'center'
-    // }
-
     const footerStyle = {
         display: 'flex',
         flexDirection: 'column',
