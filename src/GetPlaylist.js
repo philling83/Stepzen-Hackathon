@@ -1,4 +1,4 @@
-import { gql, useQuery } from '@apollo/client';
+// import { gql, useQuery } from '@apollo/client';
 
 // const getToken = async () => {
   
@@ -17,33 +17,11 @@ import { gql, useQuery } from '@apollo/client';
 
 // console.log(getToken())
 
-const GET_TRACK = gql`
-  query GetTrackQuery {
-    trackById {
-      name
-      popularity
-      explicit
-      images {
-        url
-      }
-      artists {
-        name
-      }
-    }
-  }
-`;
-
-function GetTrack() {
-  const { loading, error, data } = useQuery(GET_TRACK);
-
-  if (error) return <p>{JSON.stringify(error)}</p>;
-  if (loading) return <p>Loading ...</p>;
-
-  const track = data?.trackById
+function GetTrack({ playlist }) {
 
   return (
     <>
-      <p>StepZen says: "{JSON.stringify(track)}"</p>
+      <p>StepZen says: "{JSON.stringify(playlist.artists)}"</p>
       <a
         className="App-link"
         href="https://stepzen.com"
