@@ -135,8 +135,60 @@ body {
   justify-content: space-around;
 }
 
-.song_tile {
+.right_song {
   /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
+}
+
+.left_song {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+}
+
+.high_score_container {
+  display: flex;
+  position: absolute;
+  align-self: flex-end;
+  width: 90vw;
+  justify-content: space-between;
+}
+
+.high_score {
+  color: white;
+  align-self: flex-end;
+}
+
+.current_high_score {
+  align-self: flex-end;
+  color: white;
+}
+
+.circle {
+  color: white;
+  border: 1px solid white;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.game_button {
+  text-decoration: none;
+  background: transparent;
+  color: white;
+  padding: 10px 45px;
+  border-radius: 35px;
+  font-size: 18px;
+  margin: 0 100px;
+  border: 1px solid white;
+}
+
+.game_button:hover {
+  background-color: white;
+  color: black;
 }
