@@ -26,12 +26,14 @@ const GET_PLAYLIST = gql`
 
 function App() {
   const { loading, error, data } = useQuery(GET_PLAYLIST);
+  console.log("data", data)
 
   if (error) return <p>{JSON.stringify(error)}</p>;
   if (loading) return <p>Loading ...</p>;
 
   const playlist = data.playlistById;
   const tracks = data.tracks;
+
 
   return (
     <div className="App">
