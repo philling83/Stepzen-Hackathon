@@ -10,11 +10,14 @@ import './App.css';
 
 const GET_PLAYLIST = gql`
   query PlaylistQuery {
-    playlistById {
-      id
-      images {
-        url
-      }
+    # playlistById {
+    #   id
+    #   images {
+    #     url
+    #   }
+    # }
+    images {
+      url
     }
     tracks {
       name
@@ -32,7 +35,7 @@ function App() {
   if (!data) return null;
   if (loading) return <p>Loading ...</p>;
 
-  const playlist = data.playlistById;
+  // const playlist = data.playlistById;
   const tracks = data.tracks;
 
 
