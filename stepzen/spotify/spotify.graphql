@@ -8,44 +8,44 @@ type Image {
     url: String
 }
 
-# type Playlist {
-#     id: String
-#     name: String!
-#     tracks: [Track]
-#         @materializer (query: "tracks")
-#     images: [Image]
-#         @materializer (query: "images")
+type Playlist {
+    id: String
+    name: String!
+    tracks: [Track]
+        @materializer (query: "tracks")
+    images: [Image]
+        @materializer (query: "images")
+}
+
+# type Auth {
+#     access_token: String!
+#     token_type: String
+#     expires_in: Float
 # }
 
-type Auth {
-    access_token: String!
-    token_type: String
-    expires_in: Float
-}
+# type Mutation {
+#     get_auth: Auth
+#         @rest(
+#             method: POST
+#             contenttype: "application/x-www-form-urlencoded"
+#             postbody: "grant_type=client_credentials"
+#             endpoint: "https://accounts.spotify.com/api/token"
+#             configuration: "spotify_auth_config"
+#         )
 
-type Mutation {
-    get_auth: Auth
-        @rest(
-            method: POST
-            contenttype: "application/x-www-form-urlencoded"
-            postbody: "grant_type=client_credentials"
-            endpoint: "https://accounts.spotify.com/api/token"
-            configuration: "spotify_auth_config"
-        )
-
-    """
-    returns tracks via a sequence that generates a 
-    new token and then queries the data with the new 
-    $access_token provided
-    """
-    tracks_with_key: Track
-        @sequence(
-            steps: [
-                { mutation: "get_auth" }
-                { query: "tracks" }
-            ]
-        )
-}
+#     """
+#     returns tracks via a sequence that generates a 
+#     new token and then queries the data with the new 
+#     $access_token provided
+#     """
+#     tracks_with_key: Track
+#         @sequence(
+#             steps: [
+#                 { mutation: "get_auth" }
+#                 { query: "tracks" }
+#             ]
+#         )
+# }
 
 # type Query {
 #     get_auth: Auth
@@ -59,7 +59,7 @@ type Mutation {
 # }
 
 type Query {
-    tracks(access_token: String!): [Track]
+    tracks: [Track]
     @rest(
         setters: [
             {field:"name",path:"track.name"}
@@ -71,7 +71,7 @@ type Query {
         headers: [{ name: "Authorization", value: "Bearer $access_token" }]
         configuration: "spotify_config"
     )
-    images(access_token: String!): [Image]
+    images: [Image]
     @rest(
         setters: [
             {field:"url",path:"url"}
@@ -83,11 +83,11 @@ type Query {
     )
 }
 
-# type Query {
-#     playlistById(access_token: String!): Playlist
-#         @rest(
-#             endpoint: "https://api.spotify.com/v1/playlists/$playlistid"
-#             headers: [{ name: "Authorization", value: "Bearer $access_token" }]
-#             configuration: "spotify_config"
-#         )
-# }
+type Query {
+    playlistById: Playlist
+        @rest(
+            endpoint: "https://api.spotify.com/v1/playlists/$playlistid"
+            headers: [{ name: "Authorization", value: "Bearer $access_token" }]
+            configuration: "spotify_config"
+        )
+}
