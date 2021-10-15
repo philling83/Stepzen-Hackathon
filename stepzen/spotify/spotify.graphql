@@ -17,11 +17,11 @@ type Playlist {
         @materializer (query: "images")
 }
 
-# type Auth {
-#     access_token: String!
-#     token_type: String
-#     expires_in: Float
-# }
+type Auth {
+    access_token: String!
+    token_type: String
+    expires_in: Float
+}
 
 # type Mutation {
 #     get_auth: Auth
@@ -47,16 +47,16 @@ type Playlist {
 #         )
 # }
 
-# type Query {
-#     get_auth: Auth
-#         @rest(
-#             method: POST
-#             contenttype: "application/x-www-form-urlencoded"
-#             postbody: "grant_type=client_credentials"
-#             endpoint: "https://accounts.spotify.com/api/token"
-#             configuration: "spotify_auth_config"
-#         )
-# }
+type Query {
+    get_auth: Auth
+        @rest(
+            method: POST
+            contenttype: "application/x-www-form-urlencoded"
+            postbody: "grant_type=client_credentials"
+            endpoint: "https://accounts.spotify.com/api/token"
+            configuration: "spotify_auth_config"
+        )
+}
 
 type Query {
     tracks: [Track]
